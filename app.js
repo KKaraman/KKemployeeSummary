@@ -67,14 +67,25 @@ function employee() {
             message: `what is your role`,
         },
     ]).then(function (data) {
-        if (data.role === "Manager") {
-            manager(data);
-        }
-        if (data.role === "Intern") {
-            intern(data);
-        }
-        if (data.role === "Engineer") {
-            engineer(data);
+        // if (data.role === "Manager") {
+        //     manager(data);
+        // }
+        // if (data.role === "Intern") {
+        //     intern(data);
+        // }
+        // if (data.role === "Engineer") {
+        //     engineer(data);
+        // }
+        switch(data.role){
+            case "Manager": 
+                manager(data);
+                break
+            case "Engineer": 
+                engineer(data);
+                break
+            case "Intern": 
+                intern(data);
+                break
         }
     });
 }
