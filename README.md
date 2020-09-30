@@ -21,8 +21,6 @@ so that I have quick access to emails and GitHub profiles
 
 * This app runs as a Node CLI to gather information about each employee.
 
-* Below is an example of what your application may look like. Remember, the styling is completely up to you so try to make it unique.
-
 To run the file, type **node app.js** in the terminal.  
 
 #### **Table of Contents:**
