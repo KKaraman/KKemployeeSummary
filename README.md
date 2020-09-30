@@ -17,7 +17,9 @@ As a manager
 I want to generate a webpage that displays my team's basic info
 so that I have quick access to emails and GitHub profiles
 ```
-* This app uses the [Inquirer npm package](https://github.com/SBoudrias/Inquirer.js/) to prompt the user for their email, id, and specific information based on their role with the company. For instance, an intern may provide their school, whereas an engineer may provide their GitHub username.
+* This app uses the [Inquirer npm package](https://github.com/SBoudrias/Inquirer.js/) to prompt the user for their email, id, and specific information based on their role with the company. For instance, an intern may provide their school, whereas an engineer may provide their GitHub username.  There is also dependency on path and util npm packages.
+
+* In order to test the program, jest should also be installed.  
 
 * This app runs as a Node CLI to gather information about each employee.
 
@@ -58,7 +60,7 @@ For more information please contact me using my [email](keremukaraman@gmail.com)
 
 The link for the employee summary repo can be found [here](https://github.com/KKaraman/KKemployeeSummary).
 
-The link for the KKemployeeSummary video can be found [here](https://github.com/KKaraman/readMeGenerator/blob/master/KK_09NodeJS_HW.webm).
+The link for the KKemployeeSummary video can be found [here](https://drive.google.com/open?id=1tf2bKyqmQqM5zPGZHl5aa2dJbVPphQjb).
 
 A KKemployeeSummary generated readme file can be found [here](https://github.com/KKaraman/KKemployeeSummary/blob/master/README.md).
 
