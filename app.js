@@ -14,10 +14,9 @@ const Employee = require("./lib/Employee");
 
 const employeearray = [];
 
-// let numManagers = 0;
-// let numEngineers = 0;
-// let numInterns = 0;
 
+// Write code to use inquirer to gather information about the development team members,
+// and to create objects for each team member (using the correct classes as blueprints!)
 function employee() {
     //ask name
     //id
@@ -29,36 +28,53 @@ function employee() {
             type: "input",
             name: `name`,
             message: `what is your name`,
-
+            validate: function (answer) {
+                if (answer === "") {
+                  return 'You must type something!';
+                }
+        
+                return true;
+              }
         },
         {
             type: "input",
             name: `id`,
             message: `what is your id`,
-
+            validate: function (answer) {
+                if (answer === "") {
+                  return 'You must type something!';
+                }
+        
+                return true;
+              }
         },
         {
             type: "input",
             name: `email`,
             message: `what is your email`,
-
+            validate: function (answer) {
+                if (answer === "") {
+                  return 'You must type something!';
+                }
+        
+                return true;
+              }
         },
         {
             type: "list",
             name: `role`,
             choices: ["Engineer", "Intern", "Manager"],
             message: `what is your role`,
-
         },
     ]).then(function (data) {
-        if (data.role == "Manager") {
-            manager(data)
+        if (data.role === "Manager") {
+            manager(data);
         }
-        if (data.role == "Intern") {
-            intern(data)
+        if (data.role === "Intern") {
+            intern(data);
         }
-        if (data.role == "Engineer") {
-            engineer(data)
+        if (data.role === "Engineer") {
+            engineer(data);
         }
     });
 }
@@ -69,6 +85,13 @@ function manager(answers) {
             type: "input",
             name: `officeNum`,
             message: `what is your office number`,
+            validate: function (answer) {
+                if (answer === "") {
+                  return 'You must type something!';
+                }
+        
+                return true;
+              }
         },
         {
             type: "confirm",
@@ -78,7 +101,7 @@ function manager(answers) {
     ])
         .then(function (data) {
             if (data.isDone) {
-                console.log(data.isDone);
+                console.log("Team is complete! Generate file.");
                 //if they are done
                 const newPerson = new Manager(answers.name, answers.id, answers.email, data.officeNum);
                  //push into employeearray
@@ -98,7 +121,7 @@ function manager(answers) {
                 });       
             }
             if(!data.isDone){
-                console.log(!data.isDone);
+                console.log(`The user has more employees to add`);
                 const newPerson = new Manager(answers.name, answers.id, answers.email, data.officeNum);
                  //push into employeearray
                 employeearray.push(newPerson);
@@ -114,6 +137,13 @@ function intern(answers) {
             type: "input",
             name: `school`,
             message: `Which school are you attending?`,
+            validate: function (answer) {
+                if (answer === "") {
+                  return 'You must type something!';
+                }
+        
+                return true;
+              }
         },
         {
             type: "confirm",
@@ -123,7 +153,7 @@ function intern(answers) {
     ])
         .then(function (data) {
             if (data.isDone) {
-                console.log(data.isDone);
+                console.log("Team is complete! Generate file.");
                 //if they are done
                 const newPerson = new Intern(answers.name, answers.id, answers.email, data.school);
                  //push into employeearray
@@ -143,7 +173,7 @@ function intern(answers) {
                 });       
             }
             if(!data.isDone){
-                console.log(!data.isDone);
+                console.log(`The user has more employees to add`);
                 const newPerson = new Intern(answers.name, answers.id, answers.email, data.school);
                  //push into employeearray
                 employeearray.push(newPerson);
@@ -152,12 +182,19 @@ function intern(answers) {
             }
         })
 }
-function engineer(answers) {nop
+function engineer(answers) {
     inquirer.prompt([
         {
             type: "input",
             name: `github`,
             message: `What is your github ID?`,
+            validate: function (answer) {
+                if (answer === "") {
+                  return 'You must type something!';
+                }
+        
+                return true;
+              }
         },
         {
             type: "confirm",
@@ -167,7 +204,7 @@ function engineer(answers) {nop
     ])
         .then(function (data) {
             if (data.isDone) {
-                console.log(data.isDone);
+                console.log("Team is complete! Generate file.");
                 //if they are done
                 const newPerson = new Engineer(answers.name, answers.id, answers.email, data.github);
                  //push into employeearray
@@ -187,7 +224,7 @@ function engineer(answers) {nop
                 });       
             }
             if(!data.isDone){
-                console.log(!data.isDone);
+                console.log(`The user has more employees to add`);
                 const newPerson = new Engineer(answers.name, answers.id, answers.email, data.github);
                  //push into employeearray
                 employeearray.push(newPerson);
@@ -201,8 +238,7 @@ employee();
 
 
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
+
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
